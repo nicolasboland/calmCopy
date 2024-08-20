@@ -1,0 +1,14 @@
+[
+    {
+      "title": "Simple de <b>comprar</b>.",
+      "description": "<p>Desarrollamos el colchón <b> mejor puntuado</b> de Argentina, para que no tengas que comparar entre miles de modelos.</p>"
+    },
+    {
+      "title": "Simple de <b>probar</b>.",
+      "description":"<p>Creemos que para encontrar tu <b>descanso ideal</b> necesitas más que 5 minutos en un local. Por eso tenes <b>30 noches</b> de prueba <b> ¡en tu casa!</b></p>"
+    },
+    {
+      "title": "Simple de <b>devolver</b>.",
+      "description":"<p>Si no lo amás, avisanos y coordinamos el retiro. Te devolvemos <b> hasta el último centavo</b>, así de simple.</p>"
+    }
+  ]

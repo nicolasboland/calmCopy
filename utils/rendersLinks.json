@@ -1,0 +1,20 @@
+{
+    "desktop": {
+        "original": "/ORIGINALc.glb",
+        "originalPlus": "/ORIGINALPLUSc.glb",
+        "hibrido": "/HIBRIDOc.glb",
+        "hibridoPlus": "/HIBRIDOPLUScompressed.glb"
+    },
+    "androidIntent": {
+        "original": "intent://arvr.google.com/scene-viewer/1.1?file=https://calmessimple.com.ar/lab/test/AR/ORIGINALc.glb&mode=ar_only&link=https://calmessimple.com.ar/producto/colchon-calm&title=ColchonCalm#Intent;scheme=https;package=com.google.android.googlequicksearchbox;action=android.intent.action.VIEW;S.browser_fallback_url=https://developers.google.com/ar;end;",
+        "originalPlus": "intent://arvr.google.com/scene-viewer/1.1?file=https://calmessimple.com.ar/lab/test/AR/ORIGINALPLUSc.glb&mode=ar_only&link=https://calmessimple.com.ar/producto/colchon-calm&title=ColchonCalm#Intent;scheme=https;package=com.google.android.googlequicksearchbox;action=android.intent.action.VIEW;S.browser_fallback_url=https://developers.google.com/ar;end;",
+        "hibrido": "intent://arvr.google.com/scene-viewer/1.1?file=https://calmessimple.com.ar/lab/test/AR/HIBRIDOc.glb&mode=ar_only&link=https://calmessimple.com.ar/producto/colchon-calm-hibrido&title=ColchonCalm#Intent;scheme=https;package=com.google.android.googlequicksearchbox;action=android.intent.action.VIEW;S.browser_fallback_url=https://developers.google.com/ar;end;",
+        "hibridoPlus": "intent://arvr.google.com/scene-viewer/1.1?file=https://calmessimple.com.ar/lab/test/AR/HIBRIDOPLUScompressed.glb&mode=ar_only&link=https://calmessimple.com.ar/producto/colchon-calm-hibrido&title=ColchonCalm#Intent;scheme=https;package=com.google.android.googlequicksearchbox;action=android.intent.action.VIEW;S.browser_fallback_url=https://developers.google.com/ar;end;"
+    },
+    "iphone": {
+        "original": "/Original.usdz",
+        "originalPlus": "/OriginalPlus.usdz",
+        "hibrido": "/Hibrido.usdz",
+        "hibridoPlus": "/HIBRIDOPLUS.usdz"
+    }
+}

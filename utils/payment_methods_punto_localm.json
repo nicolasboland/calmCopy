@@ -1,0 +1,157 @@
+[
+    {
+        "code": "amex amex credit_card 1",
+        "cuota": 1,
+        "title": "AMEX DE CREDITO EN 1 CUOTA"
+    },
+
+    {
+        "code": "amex amex credit_card 3",
+        "cuota": 3,
+        "title": "AMEX DE CREDITO EN 3 CUOTAS"
+    },
+
+    {
+        "code": "amex amex credit_card 6",
+        "cuota": 6,
+        "title": "AMEX DE CREDITO EN 6 CUOTAS"
+    },
+
+    {
+        "code": "amex amex credit_card 12",
+        "cuota": 12,
+        "title": "AMEX DE CREDITO EN 12 CUOTAS"
+    },
+
+    {
+        "code": "cabal debcabal debit_card 1",
+        "cuota": 1,
+        "title": "CABAL DE DEBITO"
+    },
+
+    {
+        "code": "cabal cabal credit_card 1",
+        "cuota": 1,
+        "title": "CABAL DE CREDITO EN 1 CUOTA"
+    },
+
+    {
+        "code": "cabal cabal credit_card 13",
+        "cuota": 3,
+        "title": "CABAL DE CREDITO EN 3 CUOTAS"
+    },
+
+    {
+        "code": "cabal cabal credit_card 16",
+        "cuota": 6,
+        "title": "CABAL DE CREDITO EN 6 CUOTAS"
+    },
+
+    {
+        "code": "cabal cabal credit_card 7",
+        "cuota": 12,
+        "title": "CABAL DE CREDITO EN 12 CUOTAS"
+    },
+
+    {
+        "code": "prisma debmaster debit_card 1",
+        "cuota": 1,
+        "title": "MASTER DE DEBITO"
+    },
+
+    {
+        "code": "prisma master credit_card 1",
+        "cuota": 1,
+        "title": "MASTER DE CREDITO EN 1 CUOTA"
+    },
+
+    {
+        "code": "prisma master credit_card 13",
+        "cuota": 3,
+        "title": "MASTER DE CREDITO EN 3 CUOTAS"
+    },
+
+    {
+        "code": "prisma master credit_card 16",
+        "cuota": 6,
+        "title": "MASTER DE CREDITO EN 6 CUOTAS"
+    },
+
+    {
+        "code": "prisma master credit_card 7",
+        "cuota": 12,
+        "title": "MASTER DE CREDITO EN 12 CUOTAS"
+    },
+
+    {
+        "code": "naranja naranja credit_card 1",
+        "cuota": 1,
+        "title": "NARANJA DE CREDITO EN 1 CUOTA"
+    },
+
+    {
+        "code": "naranja naranja credit_card 6",
+        "cuota": 6,
+        "title": "NARANJA DE CREDITO EN 6 CUOTAS"
+    },
+
+    {
+        "code": "naranja naranja credit_card 12",
+        "cuota": 12,
+        "title": "NARANJA DE CREDITO EN 12 CUOTAS"
+    },
+
+    {
+        "code": "prisma debvisa debit_card 1",
+        "cuota": 1,
+        "title": "VISA DE DEBITO"
+    },
+
+    {
+        "code": "prisma visa credit_card 1",
+        "cuota": 1,
+        "title": "VISA DE CREDITO EN 1 CUOTA"
+    },
+
+    {
+        "code": "prisma visa credit_card 13",
+        "cuota": 3,
+        "title": "VISA DE CREDITO EN 3 CUOTAS"
+    },
+
+    {
+        "code": "prisma visa credit_card 16",
+        "cuota": 6,
+        "title": "VISA DE CREDITO EN 6 CUOTAS"
+    },
+
+    {
+        "code": "prisma visa credit_card 7",
+        "cuota": 12,
+        "title": "VISA DE CREDITO EN 12 CUOTAS"
+    },
+
+    {
+        "code": "transferencia",
+        "cuota": 1,
+        "title": "TRANSFERENCIA"
+    },
+
+    {
+        "code": "efectivo",
+        "cuota": 1,
+        "title": "EFECTIVO"
+    },
+
+    {
+        "code": "multiple",
+        "cuota": 0,
+        "title": "Multiples metodos de pago"
+    },
+
+    {
+        "code": "modo",
+        "cuota": 0,
+        "title": "MODO"
+    }
+]

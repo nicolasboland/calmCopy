@@ -1,0 +1,30 @@
+User-agent: *
+Allow: /*
+Disallow: /wp-admin/
+Disallow: /categoria-producto/
+Disallow: /categoria-producto/*
+Disallow: /products-page/
+Disallow: /products-page/checkout/
+Disallow: /products-page/your-account/
+Disallow: /category/sin-categoria/
+Disallow: /products-page/transaction-results/
+Disallow: /colchon-calm/
+Disallow: /la-empresa/
+Disallow: /nueva-ux-producto/
+Disallow: /pruebas/
+Disallow: /pruebasdesktop/
+Disallow: /pruebasmobile/
+Disallow: /pruebas-cyber/
+Disallow: /pruebas-uala/
+Disallow: /home-hs-20222605/
+Disallow: /cyber-monday-home/
+Disallow: /old-blog/
+Disallow: /nuevo-blog/
+Disallow: /nueva-ux-producto/
+Disallow: /producto/colchon-elemental/
+Disallow: /producto/categoria-almohadas/
+Disallow: /semana-del-colchon/
+Allow: /wp-admin/admin-ajax.php
+
+
+Sitemap: https://calmessimple.com.ar/sitemap.xml

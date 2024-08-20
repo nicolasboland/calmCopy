@@ -1,0 +1,83 @@
+[
+    {
+        "code": "visa_1",
+        "cuota": 1,
+        "title": "VISA EN 1 CUOTA/S"
+    },
+    {
+        "code": "visa_3",
+        "cuota": 3,
+        "title": "VISA EN 3 CUOTA/S"
+    },
+    {
+        "code": "visa_6",
+        "cuota": 6,
+        "title": "VISA EN 6 CUOTA/S"
+    },
+    {
+        "code": "visa_12",
+        "cuota": 12,
+        "title": "VISA EN 12 CUOTA/S"
+    },
+    {
+        "code": "mastercard_1",
+        "cuota": 1,
+        "title": "MASTERCARD EN 1 CUOTA/S"
+    },
+    {
+        "code": "mastercard_3",
+        "cuota": 3,
+        "title": "MASTERCARD EN 3 CUOTA/S"
+    },
+    {
+        "code": "mastercard_6",
+        "cuota": 6,
+        "title": "MASTERCARD EN 6 CUOTA/S"
+    },
+    {
+        "code": "mastercard_12",
+        "cuota": 12,
+        "title": "MASTERCARD EN 12 CUOTA/S"
+    },
+    {
+        "code": "maestro_1",
+        "cuota": 1,
+        "title": "MAESTRO EN 1 CUOTA/S"
+    },
+    {
+        "code": "maestro_3",
+        "cuota": 3,
+        "title": "MAESTRO EN 3 CUOTA/S"
+    },
+    {
+        "code": "maestro_6",
+        "cuota": 6,
+        "title": "MAESTRO EN 6 CUOTA/S"
+    },
+    {
+        "code": "maestro_12",
+        "cuota": 12,
+        "title": "MAESTRO EN 12 CUOTA/S"
+    },
+    {
+        "code": "transferencia",
+        "cuota": 1,
+        "title": "TRANSFERENCIA"
+    },
+
+    {
+        "code": "efectivo",
+        "cuota": 1,
+        "title": "EFECTIVO"
+    },
+
+    {
+        "cuota": 0,
+        "title": "Multiples metodos de pago"
+    },
+
+    {
+        "cuota": 0,
+        "title": "MODO"
+    }
+]

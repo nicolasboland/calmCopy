@@ -1,0 +1,29 @@
+[
+    {
+      "titulo": "El colchón mejor puntuado de Argentina",
+      "subtitulo": {
+        "html": ""
+      },
+      "textoSuperior": {
+        "html": ""
+      },
+      "cucarda": "",
+      "imagenMobile": "https://imagedelivery.net/7yveHullsFjmXtPLdJPFsg/f99e7608-a5b4-4815-a299-79469fcfa200/fit=cover",
+      "imagenDesktop": "https://imagedelivery.net/7yveHullsFjmXtPLdJPFsg/8885dcaa-d0d8-4401-a6aa-c245a678c500/fit=cover",
+      "botonTexto": "Ver Colchón Híbrido",
+      "botonColorFondo": {
+        "hex": "#FFFFFF"
+      },
+      "botonTextoColor": {
+        "hex": "#F5A203"
+      },
+      "botonHoverFondo": {
+        "hex": "#8F4F9A"
+      },
+      "redireccionBoton": "https://calmessimple.com.ar/producto/colchon-calm-hibrido",
+      "botonTextoSecundario": "",
+      "redireccionSecundario": "",
+      "templateDesktop": "hasta_45_caracteres_3_lineas",
+      "templateMobile": "hasta_45_caracteres_3_lineas"
+    }
+  ]

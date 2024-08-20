@@ -1,0 +1,18 @@
+[{
+    "href":"https://www.visa.com.ar/",
+    "img":"https://imagedelivery.net/7yveHullsFjmXtPLdJPFsg/dbc9b721-698c-4b34-09ee-98a4a3428100/fit=cover",
+    "alt":"visa"
+},{
+    "href":"https://www.mastercard.com.ar/es-ar.html",
+    "img":"https://imagedelivery.net/7yveHullsFjmXtPLdJPFsg/7324a890-399e-4b54-e35f-0813efae1700/fit=cover",
+    "alt":"mastercard"
+},{
+    "href":"https://www.americanexpress.com/es-ar/",
+    "img":"https://imagedelivery.net/7yveHullsFjmXtPLdJPFsg/2f2c7973-6afc-460e-bf86-4cf2bd5f3300/fit=cover",
+    "alt":"american-express"
+},{
+    "href":"http://qr.afip.gob.ar/?qr=cKvODVB-7QwyCjUGoLBxow,,",
+    "img":"https://imagedelivery.net/7yveHullsFjmXtPLdJPFsg/84d9829f-9190-4df2-f047-e692e64f3400/fit=cover",
+    "alt":"data-fiscal",
+    "dataFiscal": true
+}]

@@ -1,0 +1,27 @@
+{
+      "titulo": "Hasta 15% de reintegro",
+      "subtitulo": {
+        "html": ""
+      },
+      "textoSuperior": {
+        "html": ""
+      },
+      "cucarda": "",
+      "imagenMobile": "https://imagedelivery.net/7yveHullsFjmXtPLdJPFsg/1a73b2cb-d2bd-4ef9-70ad-a7516283ed00/fit=cover",
+      "imagenDesktop": "https://imagedelivery.net/7yveHullsFjmXtPLdJPFsg/9db7d984-74a2-4ff0-d676-163a8a700200/fit=cover",
+      "botonTexto": "Ver Colchón Híbrido",
+      "botonColorFondo": {
+        "hex": "#FFFFFF"
+      },
+      "botonTextoColor": {
+        "hex": "#F5A203"
+      },
+      "botonHoverFondo": {
+        "hex": "#8F4F9A"
+      },
+      "redireccionBoton": "https://calmessimple.com.ar/producto/colchon-calm-hibrido",
+      "botonTextoSecundario": "",
+      "redireccionSecundario": "",
+      "templateDesktop": "hasta_26_caracteres_3_lineas",
+      "templateMobile": "hasta_26_caracteres_3_lineas"
+}

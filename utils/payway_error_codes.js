@@ -1,0 +1,19 @@
+export const FONDOS_INSUFICIENTES = 51
+
+export const TRANSACCION_NO_PERMITIDA_1 = 57
+export const TRANSACCION_NO_PERMITIDA_2 = 39
+
+export const EXCEDE_CUOTAS_MAX = 48
+
+export const INGRESO_DATOS_INCORRECTO = 8
+
+export const REINTENTAR_LUEGO_1 = 28
+export const REINTENTAR_LUEGO_2 = 58
+
+export const FECHA_VENCIMIENTO_ERRONEA = 49
+
+export const PIN_INCORRECTO = 55
+
+export const NECESITA_AUTORIZACION_1 = 76
+export const NECESITA_AUTORIZACION_2 = 91
+export const NECESITA_AUTORIZACION_3 = 1

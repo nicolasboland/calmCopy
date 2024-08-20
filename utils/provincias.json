@@ -1,0 +1,98 @@
+[
+    {
+        "name": "CABA",
+        "value": "C"
+    },
+    {
+        "name": "Buenos Aires",
+        "value": "B"
+    },
+    {
+        "name": "Catamarca",
+        "value": "K"
+    },
+    {
+        "name": "Chaco",
+        "value": "H"
+    },
+    {
+        "name": "Chubut",
+        "value": "U"
+    },
+    {
+        "name": "Córdoba",
+        "value": "X"
+    },
+    {
+        "name": "Corrientes",
+        "value": "W"
+    },
+    {
+        "name": "Entre Ríos",
+        "value": "E"
+    },
+    {
+        "name": "Formosa",
+        "value": "P"
+    },
+    {
+        "name": "Jujuy",
+        "value": "Y"
+    },
+    {
+        "name": "La Pampa",
+        "value": "L"
+    },
+    {
+        "name": "La Rioja",
+        "value": "F"
+    },
+    {
+        "name": "Mendoza",
+        "value": "M"
+    },
+    {
+        "name": "Misiones",
+        "value": "N"
+    },
+    {
+        "name": "Neuquén",
+        "value": "Q"
+    },
+    {
+        "name": "Río Negro",
+        "value": "R"
+    },
+    {
+        "name": "Salta",
+        "value": "A"
+    },
+    {
+        "name": "San Juan",
+        "value": "J"
+    },
+    {
+        "name": "San Luis",
+        "value": "D"
+    },
+    {
+        "name": "Santa Cruz",
+        "value": "Z"
+    },
+    {
+        "name": "Santa Fe",
+        "value": "S"
+    },
+    {
+        "name": "Santiago del Estero",
+        "value": "G"
+    },
+    {
+        "name": "Tierra del Fuego",
+        "value": "V"
+    },
+    {
+        "name": "Tucumán",
+        "value": "T"
+    }
+]

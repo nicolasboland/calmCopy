@@ -1,0 +1,91 @@
+{
+    "couponLink": "https://calm.ar/rdc-eschejtman ",
+    "couponCode":  "rdc-eschejtman",
+    "data": {
+        "2006654": {
+            "id": "2006654",
+            "date_modified": {
+                "date": "2023-01-13 10:50:04.000000",
+                "timezone_type": 3,
+                "timezone": "America\/Argentina\/Buenos_Aires"
+            },
+            "order_status": "delivered",
+            "referral_name": "Paola Bratti",
+            "refund_amount": 1000,
+            "coupon": "rdc-eschejtman"
+        },
+        "2052523": {
+            "id": "2052523",
+            "date_modified": {
+                "date": "2023-05-10 15:13:47.000000",
+                "timezone_type": 3,
+                "timezone": "America\/Argentina\/Buenos_Aires"
+            },
+            "order_status": "delivered",
+            "referral_name": "Pablo Corzini",
+            "refund_amount": 2000,
+            "coupon": "rdc-eschejtman"
+        },
+        "2076419": {
+            "id": "2076419",
+            "date_modified": {
+                "date": "2023-06-30 10:32:55.000000",
+                "timezone_type": 3,
+                "timezone": "America\/Argentina\/Buenos_Aires"
+            },
+            "order_status": "delivered",
+            "referral_name": "Bruno Tievoli",
+            "refund_amount": 2000,
+            "coupon": "rdc-eschejtman"
+        },
+        "2085663": {
+            "id": "2085663",
+            "date_modified": {
+                "date": "2023-07-24 12:27:54.000000",
+                "timezone_type": 3,
+                "timezone": "America\/Argentina\/Buenos_Aires"
+            },
+            "order_status": "delivered",
+            "referral_name": "Bruno Emilio Tievoli",
+            "refund_amount": 4000,
+            "coupon": "rdc-eschejtman"
+        },
+        "2194881": {
+            "id": "2194881",
+            "date_modified": {
+                "date": "2024-04-23 15:39:59.000000",
+                "timezone_type": 3,
+                "timezone": "America\/Argentina\/Buenos_Aires"
+            },
+            "order_status": "refunded",
+            "referral_name": "Florencia Maldonado",
+            "refund_amount": 4000,
+            "coupon": "rdc-eschejtman"
+        },
+        "2202677": {
+            "id": "2202677",
+            "date_modified": {
+                "date": "2024-05-14 16:59:02.000000",
+                "timezone_type": 3,
+                "timezone": "America\/Argentina\/Buenos_Aires"
+            },
+            "order_status": "delivered",
+            "referral_name": "Florencia Maldonado",
+            "refund_amount": 2000,
+            "coupon": "rdc-eschejtman"
+        },
+        "2202679": {
+            "id": "2202679",
+            "date_modified": {
+                "date": "2024-04-27 11:49:18.000000",
+                "timezone_type": 3,
+                "timezone": "America\/Argentina\/Buenos_Aires"
+            },
+            "order_status": "delivered",
+            "referral_name": "Florencia Maldonado",
+            "refund_amount": 2000,
+            "coupon": "rdc-eschejtman"
+        }
+    },
+    "error": "No orders found for coupon: rdc-b75"
+}
