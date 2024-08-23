@@ -283,6 +283,7 @@ const Gallerys = (props: IPropsChildrens) => {
               : <Images 
               src={image} 
               alt="images carrousel" 
+              isLazy
             />
               }
             </div>
@@ -316,6 +317,18 @@ const Gallerys = (props: IPropsChildrens) => {
             </PillWrapper>
         }
 
+        {
+          props.gelleryCategory === "ropa de cama" && 
+            <PillWrapper>
+              <Images src="https://imagedelivery.net/7yveHullsFjmXtPLdJPFsg/d3af7362-b745-41c7-f32e-84f12ab66900/fit=cover"
+              width="35%"
+              responsiveMobile={{
+                width:"40%"
+              }}
+              alt="cupon" />
+            </PillWrapper>
+        }
+
         {/*
          ( props.gelleryCategory ===  "ropa de cama" ||
            props.gelleryCategory ===  "bases" ||
@@ -335,7 +348,11 @@ const Gallerys = (props: IPropsChildrens) => {
           isThursday() && 
           !(props.gelleryCategory == "feria") &&
           !(props.gelleryCategory == "muebles") &&
-          <GaliciaPill>
+          <GaliciaPill $isEmpty={
+            !(props.gelleryCategory === "ropa de cama" ||
+            props.gelleryCategory === "nuevos-lanzamientos" ||
+            props.gelleryCategory === "muebles")
+          }>
             <Text
             font="bold"
             color="white"
@@ -350,7 +367,8 @@ const Gallerys = (props: IPropsChildrens) => {
         {
           !isThursday() &&
           <CucardaContainer>
-            <BannerAndCucarda isCucarda category={props.gelleryCategory}/>
+            <BannerAndCucarda isCucarda category={props.gelleryCategory}
+            />
           </CucardaContainer>
         }
     </Gallery>

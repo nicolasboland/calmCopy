@@ -5,4 +5,5 @@ export interface IProps {
     price: number
     regularPrice: number
     isCategory?: boolean
+    quantity?: number
 }

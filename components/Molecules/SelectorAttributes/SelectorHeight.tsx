@@ -5,6 +5,7 @@ import { useEffect, useState } from "react"
 import Button from "@/components/Atoms/Buttons/Button"
 import Text from "@/components/Atoms/Typography/Text"
 import Margin from "@/components/Atoms/Spacing/Margin/Margin"
+import SkeletonLoader from "../SkeletonLoader/SkeletonLoader"
 
 const heightCm = {
   "original-plus": "28 cm",
@@ -49,81 +50,87 @@ const SelectorHeight = ({
 
   return (
     <HeightContainer>
-      <Margin margin="5px 0" marginMobile="2px"/>
+      {
+        childrenByHeight ?
+        <>
+          <Margin margin="5px 0" marginMobile="2px"/>
 
-      <Text 
-      font={isCategory ? "bold" : "medium"}
-      fontSize={isCategory ? "1rem" : ".9em"}
-      >
-        Seleccioná la altura
-      </Text>
+          <Text 
+          font={isCategory ? "bold" : "medium"}
+          fontSize={isCategory ? "1rem" : ".9em"}
+          >
+            Seleccioná la altura
+          </Text>
 
-      <Margin margin="5px 0" marginMobile="4px"/>
+          <Margin margin="5px 0" marginMobile="4px"/>
 
-      <SelectHeight>
-        {childrenByHeight && Object.keys(childrenByHeight).length > 0 &&
-          arrOptions?.map((height: string) => (
-            <Button
-              key={height}
-              disabled={
-                !(
-                  childrenByHeight[height as keyof typeof childrenByHeight][
-                    "stock"
-                  ] > 0 ||
-                  childrenByHeight[height as keyof typeof childrenByHeight][
-                    "backorder"
-                  ]
-                )
-              }
-              onChange={() => setSelectedProp && setSelectedProp(height)}
-              onClick={() => {
-                setSelectedProp && setSelectedProp(height);
-                setIsSizeChange && hasRenders && setIsSizeChange(true)
-              }}
-              className={
-                selectedProp === height &&
-                (childrenByHeight[height as keyof typeof childrenByHeight][
-                  "stock"
-                ] > 0 ||
-                  childrenByHeight[height as keyof typeof childrenByHeight][
-                    "backorder"
-                  ])
-                  ? "selected"
-                  : "notSelected"
-              }
-            >
-              {
-                !isCategory &&
-                <Text 
-                  color="offBlack" 
-                  font="medium" 
-                  fontSize="1rem" 
+          <SelectHeight>
+            {childrenByHeight && Object.keys(childrenByHeight).length > 0 &&
+              arrOptions?.map((height: string) => (
+                <Button
+                  key={height}
+                  disabled={
+                    !(
+                      childrenByHeight[height as keyof typeof childrenByHeight][
+                        "stock"
+                      ] > 0 ||
+                      childrenByHeight[height as keyof typeof childrenByHeight][
+                        "backorder"
+                      ]
+                    )
+                  }
+                  onChange={() => setSelectedProp && setSelectedProp(height)}
+                  onClick={() => {
+                    setSelectedProp && setSelectedProp(height);
+                    setIsSizeChange && hasRenders && setIsSizeChange(true)
+                  }}
+                  className={
+                    selectedProp === height &&
+                    (childrenByHeight[height as keyof typeof childrenByHeight][
+                      "stock"
+                    ] > 0 ||
+                      childrenByHeight[height as keyof typeof childrenByHeight][
+                        "backorder"
+                      ])
+                      ? "selected"
+                      : "notSelected"
+                  }
+                >
+                  {
+                    !isCategory &&
+                    <Text 
+                      color="offBlack" 
+                      font="medium" 
+                      fontSize="1rem" 
+                      align="left" 
+                      responsiveMobile={{
+                        width:"auto",
+                        fontSize:"0.85rem"
+                        }}>
+                        {
+                          variations_products[
+                            height as keyof typeof variations_products
+                          ]
+                        }
+                    </Text>
+                  }
+
+                  <Text 
+                  color={isCategory ? "offBlack" : "millionGray"} 
+                  font={isCategory ? "bold" : "medium"}
                   align="left" 
                   responsiveMobile={{
                     width:"auto",
                     fontSize:"0.85rem"
                     }}>
-                    {
-                      variations_products[
-                        height as keyof typeof variations_products
-                      ]
-                    }
-                </Text>
-              }
-
-              <Text 
-              color={isCategory ? "offBlack" : "millionGray"} 
-              font={isCategory ? "bold" : "medium"}
-              align="left" 
-              responsiveMobile={{
-                width:"auto",
-                fontSize:"0.85rem"
-                }}>
-                {heightCm[height as keyof typeof heightCm]} de altura
-              </Text>
-            </Button>
-          ))}
-      </SelectHeight>
+                    {heightCm[height as keyof typeof heightCm]} de altura
+                  </Text>
+                </Button>
+              ))}
+          </SelectHeight>
+          </>
+          : <SkeletonLoader  width="100%" height="110px"/>
+      }
     </HeightContainer>
   )
 }

@@ -14,7 +14,7 @@ export const MainBlockLoaders = () => {
     return (
         <Loaders>
             <div>
-                <SkeletonLoader  width="400px" height="220px" borderRadius="10px"/>
+                <SkeletonLoader  width="400px" height="125px" borderRadius="10px"/>
 
                 <Margin margin="1rem"/>
 
@@ -22,7 +22,7 @@ export const MainBlockLoaders = () => {
 
                 <Margin margin="1rem"/>
                 
-                <SkeletonLoader  width="400px" height="100px" borderRadius="10px"/>
+                <SkeletonLoader  width="400px" height="200px" borderRadius="10px"/>
             </div>
         </Loaders>
     )

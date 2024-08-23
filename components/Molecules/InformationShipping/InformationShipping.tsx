@@ -18,6 +18,8 @@ import Input from "@/components/Atoms/Input/Input"
 import Button from "@/components/Atoms/Buttons/Button"
 import Margin from "@/components/Atoms/Spacing/Margin/Margin"
 import { CamionSvg} from "@/utils/Icons"
+import { getUserCP } from "@/state/user/userSelector"
+import { onEnterCP } from "@/state/user/userActions"
 
 const InformationShipping = ({
   product,
@@ -31,9 +33,9 @@ const InformationShipping = ({
   const [showComponent, setShowComponent] = useState(false)
   const [dateToCorte, setDateToCorte] = useState<Date>()
   const shippingTime = useSelector((state: IStore) => getShippintTime(state))
+  const cp = useSelector(getUserCP)
   /* const postcode = useSelector(getCartPostCode) */
 
-  const [cp, setCp] = useState<string>(/* postcode ??  */"")
   const [message, setMessage] = useCalculateShipping()
 
 /*   useEffect(() => {
@@ -64,13 +66,17 @@ const InformationShipping = ({
       setShowComponent(true)
     }
 
-    if (router.asPath) {
+   /*  if (router.asPath) {
       setShowInput(false)
       setCp("")
       setMessage({
         flag: false,
         response: ""
       })
+    }
+ */
+    if (product && cp) {
+      calcularTiempo()
     }
   }, [router.asPath, product])
 
@@ -87,6 +93,12 @@ const InformationShipping = ({
       }
     }
   }, [allowCountDown, shippingTime])
+
+  useEffect(() => {
+    if(cp) {
+      setShowInput(true)
+    }
+  }, [cp])
 
   const calcularTiempo = (postcode?: string) => {
     setMessage({
@@ -108,7 +120,7 @@ const InformationShipping = ({
         response: "Ingrese solo numeros"
       })
     } else {
-      setCp(e.target.value)
+      dispatch(onEnterCP(e.target.value))
       setMessage({
         flag: false,
         response: ""
@@ -124,7 +136,7 @@ const InformationShipping = ({
             <SameDayCountDown dateToCorte={dateToCorte} />
           ) : (
             <>
-              <DivText onClick={() => setShowInput(!showInput)}>
+              <DivText onClick={() => setShowInput((prevState) => !prevState)}>
                 <CamionSvg />
                 <Margin margin="0 10px"/>
                 <Text

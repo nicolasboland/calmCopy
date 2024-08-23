@@ -91,7 +91,7 @@ export const DescriptionAccordion = styled.div<{$isProductSS?: boolean, $isFromC
   }
   p {
     color: ${props => props.$isProductSS ? `${theme.colors.offBlack}` : props.theme.colors.millionGray};
-    font-family: ${props => props.theme.fonts.light}, Arial;
+    font-family: ${props => props.theme.fonts.medium}, Arial;
     padding: 20px;
     font-size: ${props => props.$isProductSS ? `1rem` : "1.1rem"};
   }

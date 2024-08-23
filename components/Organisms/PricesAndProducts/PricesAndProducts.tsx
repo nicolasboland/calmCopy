@@ -12,6 +12,7 @@ import {
   DivButton,
   DivButtonInfoExtra,
   ListInfoExtra,
+  PillContainer
 } from "./styled";
 import ExtraInfoHome from "../../Molecules/ExtraInfoHome/ExtraInfoHome";
 import { useWidth } from "@/hooks/useWidth";
@@ -63,12 +64,10 @@ const PricesAndProducts = ({colchon}: {colchon?: IProduct}) => {
         <DivContent>
           <DivText>
             {product?.discount_pill && 
-            (
-              <>
+              <PillContainer>
                 <Pills isOfferProduct categoryPill={'colchones'}/>
-              </>
-            )
-          }
+              </PillContainer>
+            }
             <DivTitle>
             <Titles
               titleTag="h3"

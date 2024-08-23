@@ -92,6 +92,7 @@ import { getUserIsLogged } from "@/state/user/userSelector";
 import { formatNumber } from "@/utils/formatPrices";
 import { sendClarityCustomEvent } from "@/lib/clarity";
 import { onLogCheckoutForm } from "@/state/user/userActions";
+import { bines_hipotecario } from "@/utils/bines_hipotecario";
 
 function Pagos({ handleStepFormSubmit, currentStep, userDataForm }: IProps) {
   const dispatch = useDispatch();
@@ -128,6 +129,79 @@ function Pagos({ handleStepFormSubmit, currentStep, userDataForm }: IProps) {
     { cuota: "12 cuotas sin interés", installment: 12 },
   ])
 
+  const obtain_index_payment_method = (method_to_find: string) => 
+    list_payment_methods.findIndex(item => item.method === method_to_find)
+
+  const list_payment_methods = [
+    {
+      method: PAYWAY,
+      title: "Tarjeta de crédito o débito",
+      description: `Hasta ${hasColchonoBase ? 12 : 6} cuotas sin interés.`,
+      greenText: true
+    },
+    // {
+    //   method: FISERV,
+    //   title: "Tarjeta de crédito o débito",
+    //   description: `Hasta ${hasColchonoBase ? 12 : 6} cuotas sin interés.`,
+    //   greenText: true
+    // },
+    // {
+    //   method: PAYWAY,
+    //   title: "Pagá con tu tarjeta del Banco Hipotecario",
+    //   description: `Hasta 24 cuotas sin interés.`,
+    //   greenText: true
+    // },
+    {
+      method: BACS,
+      title: "Transferencia bancaria",
+      description: `Hasta ${hasColchonoBase ? "20%" : "10%"} OFF adicional.`,
+      outletDescription: "Método disponible para carrito con productos de feria.",
+      greenText: true
+    },
+    {
+      method: WIBOND,
+      title: "Wibond",
+      description: "Pagá hasta en 6 cuotas sin tarjeta.",
+      greenText: true
+    },
+    {
+      method: MODO,
+      title: "MODO",
+      description: "Pagá hasta en 6 cuotas sin tarjeta." ,
+      greenText: true
+    },
+    {
+      method: CASH,
+      title: "Efectivo",
+      description: `Pagá en nuestros locales ${hasColchonoBase ? "20%" : "10%"} OFF adicional.`,
+      greenText: true
+    },
+    {
+      method: LOCALM_GATEWAY,
+      title: "Punto Localm",
+      description: "Método de pago exclusivo para el equipo de Customer de Calm",
+      greenText: false
+    },
+    {
+      method: MERCADO_PAGO,
+      title: "Mercado Pago",
+      description: "Aboná con el saldo de tu cuenta",
+      greenText: false
+    },
+  ]
+
+  const available_methods = [FISERV, PAYWAY, BACS, /*WIBOND,*/ MODO, CASH];
+
+  const INDEX_FISERV = obtain_index_payment_method(FISERV);
+  const INDEX_PAYWAY = obtain_index_payment_method(PAYWAY);
+  const INDEX_BACS = obtain_index_payment_method(BACS);
+  const INDEX_WIBOND = obtain_index_payment_method(WIBOND);
+  const INDEX_MODO = obtain_index_payment_method(MODO);
+  const INDEX_CASH = obtain_index_payment_method(CASH);
+  const INDEX_LOCALM_GATEWAY = obtain_index_payment_method(LOCALM_GATEWAY);
+  const INDEX_MERCADO_PAGO = obtain_index_payment_method(MERCADO_PAGO);
+
+  // const [withHipotecario, setWithHipotecario] = useState(false);
   const [cuotasLoading, setCuotasLoading] = useState(true);
   const [maxLengthCvv, setMaxLengthCvv] = useState(3);
   const [imagen, setImagen] = useState("");
@@ -480,7 +554,37 @@ function Pagos({ handleStepFormSubmit, currentStep, userDataForm }: IProps) {
     if (inputText.length >= 6) {
       if (inputText.slice(0, 6) !== formData.card.slice(0, 6)) {
         const bin = parseInt(inputText.slice(0, 6));
+
+        // COMENTAR LUNES 26
         dispatch(onGetCardInfo(bin));
+
+        // ACTIVAR LUNES 26
+        // const shouldDispatch = (withHipotecario && bines_hipotecario.includes(bin)) ||
+        // (!withHipotecario && !bines_hipotecario.includes(bin));
+
+        // if (shouldDispatch) {
+        //   dispatch(onGetCardInfo(bin));
+        // } else {
+        //   toast.error("Este medio de pago no está habilitado para tu tarjeta", {
+        //     position: "bottom-center",
+        //     autoClose: 5000,
+        //     toastId: "",
+        //     icon: false,
+        //     pauseOnFocusLoss: false,
+        //     style: {
+        //       backgroundColor: "#631F99",
+        //       color: "white",
+        //       borderRadius: "0.5rem",
+        //       width: "500px",
+        //       fontFamily: "Gilroy-Bold",
+        //       fontWeight: "700",
+        //       fontSize: "1.2rem",
+        //       letterSpacing: "1px",
+        //       lineHeight: "21px",
+        //     },
+        //   })
+        // }
+                
       } else {
         setCuotasLoading(false);
       }
@@ -492,6 +596,45 @@ function Pagos({ handleStepFormSubmit, currentStep, userDataForm }: IProps) {
       setCuotasLoading(true);
     }
   }, [nCard.card, cardInfo]);
+
+  useEffect(() => {
+    // if(activeIndex == INDEX_PAYWAY) {
+    //   setWithHipotecario(true)
+    // } else {
+    //   setWithHipotecario(false)
+    // }
+
+    setNCard({
+      card: "",
+      cardError: ""
+    });
+
+    setFormData({
+      ...formData,
+      card: "",
+      cardError: "",
+      nombreTitular: "",
+      nombreTitularError: "",
+      fechaVencimiento: new Date(),
+      fechaVencimientoError: "",
+      dni: "",
+      dniError: "",
+      codigoSeguridad: "",
+      codigoSeguridadError: "",
+      preferedCuotas: { cuota: "Elegí las cuotas", installment: 0 },
+    })
+
+    setFechaVencimiento(undefined)
+
+    setImagen("")
+
+    setCuotasPW([
+      { cuota: "Elegí las cuotas", installment: 0 },
+    ]);
+
+    setIsCuotas(false)
+
+  }, [activeIndex])
 
   useEffect(() => {
     if (currentStep === 2 && !loadScriptPWOneTime && activeIndex === 0) {
@@ -580,23 +723,23 @@ function Pagos({ handleStepFormSubmit, currentStep, userDataForm }: IProps) {
 
         hasColchonesOrBases ? arrCuotas?.splice(1, 1) : arrCuotas?.shift();
         arrCuotas?.forEach((item) => {
-          const discount = (1 - item.coefficient) * 100;
+          // const discount = (1 - item.coefficient) * 100;
           if (item.installments === "1") {
-            setCuotasPW((prevCuotas) => [
-              ...prevCuotas,
-              {
-                cuota: `${item.installments} cuota con ${discount.toFixed(
-                  0
-                )}% Off ($${item.coefficient * parseInt(totalPrice)})`,
-                installment: parseInt(item.installments_to_send),
-              },
-            ]);
+            // setCuotasPW((prevCuotas) => [
+            //   ...prevCuotas,
+            //   {
+            //     cuota: `${item.installments} cuota con ${discount.toFixed(
+            //       0
+            //     )}% Off ($${item.coefficient * parseInt(totalPrice)})`,
+            //     installment: parseInt(item.installments_to_send),
+            //   },
+            // ]);
           } else if (item.installments === "12" && !hasColchonesOrBases) {
           } else {
             setCuotasPW((prevCuotas) => [
               ...prevCuotas,
               {
-                cuota: `${item.installments} cuotas ($${totalPrice})`,
+                cuota: `${item.installments} cuotas ($${formatNumber((totalPrice / parseInt(item.installments)))})`,
                 installment: parseInt(item.installments_to_send),
               },
             ]);
@@ -1216,7 +1359,7 @@ function Pagos({ handleStepFormSubmit, currentStep, userDataForm }: IProps) {
                       ? "Cargando..."
                       : isCuotas && (
                           <OptionsContainer>
-                            {cuotasFiserv.map((c) => (
+                            {cuotasPW.map((c) => (
                               <Option
                                 key={c.cuota}
                                 onClick={() =>
@@ -1405,120 +1548,338 @@ function Pagos({ handleStepFormSubmit, currentStep, userDataForm }: IProps) {
     );
   };
 
+  const PaywayDataHipotecario = () => {
+    return (
+      <>
+        <FormContainer>
+          <Form onSubmit={handleSubmitPW} id="form_payway">
+            <FormGrid>
+              <FormGroup>
+                <StyledInputMask
+                  data-decidir="card_number"
+                  mask="9999-9999-9999-9999"
+                  maskChar=""
+                  type="text"
+                  id="creditCard"
+                  name="card"
+                  value={nCard.card}
+                  onChange={(e: any) => setNCard((prevState) => ({ ...prevState, card: e.target.value}))}
+                  placeholder="Número de la tarjeta *"
+                  disabled={loadingPay}
+                  onBlur={(e: any) =>
+                    setNCard(
+                      validator(e.target.name, e.target.value, nCard, true)
+                    )
+                  }
+                />
+                {imagen && <Img src={imagen} />}
+                {nCard.cardError && (
+                  <ErrorMessage>{nCard.cardError}</ErrorMessage>
+                )}
+              </FormGroup>
+
+              <FormGroup>
+                <OptionsPickerContainer>
+                  <ToggleOptionsButton
+                    activeCondition={isCuotas}
+                    action={() => {
+                      setIsCuotas(!isCuotas);
+                    }}
+                    innerText={formData.preferedCuotas.cuota}
+                    disabled={loadingPay || cuotasLoading}
+                  >
+                    {loadingCardInfo
+                      ? "Cargando..."
+                      : isCuotas && (
+                          <OptionsContainer>
+                            {cuotasPW.map((c) => (
+                              <Option
+                                key={c.cuota}
+                                onClick={() =>
+                                  setFormData({
+                                    ...formData,
+                                    preferedCuotas: {
+                                      cuota: c.cuota,
+                                      installment: c.installment,
+                                    },
+                                  })
+                                }
+                              >
+                                {c.cuota}
+                              </Option>
+                            ))}
+                          </OptionsContainer>
+                        )}
+                  </ToggleOptionsButton>
+                </OptionsPickerContainer>
+              </FormGroup>
+
+              <FormGroup>
+                <FormInput
+                  data-decidir="card_holder_name"
+                  placeholder=" "
+                  name="nombreTitular"
+                  value={formData.nombreTitular}
+                  disabled={loadingPay}
+                  onChange={(e) =>
+                    setFormData(
+                      validator(e.target.name, e.target.value, formData)
+                    )
+                  }
+                  onBlur={(e) =>
+                    setFormData(
+                      validator(e.target.name, e.target.value, formData, true)
+                    )
+                  }
+                />
+                <FormLabel>Nombre y apellido del titular <MandatoryText>*</MandatoryText></FormLabel>
+                {formData.nombreTitularError && (
+                  <ErrorMessage>{formData.nombreTitularError}</ErrorMessage>
+                )}
+              </FormGroup>
+
+              <FormGroup>
+                <FormInput
+                  data-decidir="card_holder_doc_number"
+                  placeholder=" "
+                  name="dni"
+                  value={formData.dni}
+                  onChange={(e) =>
+                    setFormData(
+                      validator(e.target.name, e.target.value, formData)
+                    )
+                  }
+                  onBlur={(e) =>
+                    setFormData(
+                      validator(e.target.name, e.target.value, formData, true)
+                    )
+                  }
+                  disabled={loadingPay}
+                />
+                <FormLabel>DNI del titular <MandatoryText>*</MandatoryText></FormLabel>
+                {formData.dniError && (
+                  <ErrorMessage>{formData.dniError}</ErrorMessage>
+                )}
+              </FormGroup>
+
+              <StyledDataPickerContainer>
+                <FormGroup>
+                  <DatePickerContainer
+                    selected={fechaVencimiento}
+                    onChange={(e: any) => handleFechaVencimientoChange(e)}
+                    onChangeRaw={(e: any) => {
+                      if (
+                        !/^[\/\d]*$/.test(e.target.value) ||
+                        e.target.value.length > 5 ||
+                        /^\/+$/g.test(e.target.value)
+                      ) {
+                        e.preventDefault();
+                        setFormData({
+                          ...formData,
+                          fechaVencimientoError: "Formato Invalido",
+                        });
+                        setFechaVencimiento(undefined)
+                      } else {
+                        let date = e.target.value
+                        if(e.target.value.length === 5) {
+                          date = date.replace('/', '');
+                        }
+                        if (date.length >= 4 && /^[0-9]*$/.test(date)) {
+                          const monthAndYear = date.match(/.{1,2}/g);
+                          const dateMonthAndYear = new Date(
+                            20 + monthAndYear[1],
+                            monthAndYear[0] - 1,
+                            1
+                          );
+                          if (dateMonthAndYear < today) {
+                            setFormData({
+                              ...formData,
+                              fechaVencimientoError:
+                                "No puede ser anterior a hoy",
+                            });
+                            setFechaVencimiento(undefined)
+                          } else if (monthAndYear[0] - 1 > 11) {
+                            setFormData({
+                              ...formData,
+                              fechaVencimientoError: "Formato Invalido",
+                            });
+                            setFechaVencimiento(undefined)
+                          } else {
+                            setFechaVencimiento(dateMonthAndYear);
+                            setFormData({
+                              ...formData,
+                              fechaVencimiento: dateMonthAndYear,
+                              fechaVencimientoError: "",
+                            });
+                          }
+                        }
+                      }}}
+                      dateFormat="MM/yy"
+                      placeholderText="Fecha de vencimiento"
+                      name="expiredDate"
+                      showMonthYearPicker
+                      minDate={today}
+                      disabled={loadingPay}
+                    />
+               {/*  <FormLabel>Fecha de vencimiento <MandatoryText>*</MandatoryText></FormLabel> */}
+                </FormGroup>
+                {formData.fechaVencimientoError && (
+                  <ErrorMessage>{formData.fechaVencimientoError}</ErrorMessage>
+                )}
+              </StyledDataPickerContainer>
+
+              <FormGroup>
+                <FormInput
+                  data-decidir="security_code"
+                  placeholder=" "
+                  name="codigoSeguridad"
+                  value={formData.codigoSeguridad}
+                  onChange={(e) =>
+                    setFormData(
+                      validator(e.target.name, e.target.value, formData)
+                    )
+                  }
+                  onBlur={(e) =>
+                    setFormData(
+                      validator(
+                        e.target.name,
+                        e.target.value,
+                        formData,
+
+                        true,
+                        maxLengthCvv
+                      )
+                    )
+                  }
+                  disabled={loadingPay}
+                />
+                <FormLabel>Código de seguridad <MandatoryText>*</MandatoryText></FormLabel>
+                {formData.codigoSeguridadError && (
+                  <ErrorMessage>{formData.codigoSeguridadError}</ErrorMessage>
+                )}
+              </FormGroup>
+            </FormGrid>
+            {btnPayment("Realizar pedido", disable(), true)}
+          </Form>
+        </FormContainer>
+        <FormGroup $cols="2">
+          <DivText>
+            <svg
+              width="24"
+              height="28"
+              viewBox="0 0 24 28"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d={archivos.candado} fill="#631F99" />
+            </svg>
+
+            <Violet>Transacciones seguras con PayWay</Violet>
+          </DivText>
+        </FormGroup>
+      </>
+    );
+  };
+
+  const renderContentPaymentMethodByIndexSelected = (index: number) => {
+    switch (index) {
+      case INDEX_FISERV:
+        return FiservData();
+
+      case INDEX_PAYWAY:
+        // return PaywayDataHipotecario();
+        return PaywayData();
+
+      case INDEX_BACS:
+        return TranferenciaData();
+
+      case INDEX_WIBOND:
+        return WibondData();
+
+      case INDEX_CASH:
+        return btnPayment("Pagar en efectivo", loadingPay)
+
+      case INDEX_LOCALM_GATEWAY:
+        return PuntoLocalmData();
+
+      case INDEX_MERCADO_PAGO:
+        btnPayment("Pagar con Mercado Pago", loadingPay)
+
+      case INDEX_MODO:
+      default:
+        return btnPayment("Realizar pedido", loadingPay);
+    }
+  }
   // MODIFICAR LOS INDICES EN RELACION A ESTE ARRAY PARA CAMBIAR ORDEN DE METODOS DE PAGO
 
   return (
     <>
       <PagoDiv>
-        {[
-          {
-            title: "Tarjeta de crédito o débito",
-            description: `Hasta ${hasColchonoBase ? 12 : 6} cuotas sin interés.`,
-            greenText: true
-          },
-          {
-            title: "Transferencia bancaria",
-            description: `Hasta ${hasColchonoBase ? "20%" : "10%"} OFF adicional.`,
-            outletDescription: "Método disponible para carrito con productos de feria.",
-            greenText: true
-          },
-/*           {
-            title: "Wibond",
-            description: "Pagá hasta en 6 cuotas sin tarjeta.",
-            greenText: true
-          }, */
-          {
-            title: "MODO",
-            description: "Pagá hasta en 6 cuotas sin tarjeta." ,
-            greenText: true
-          },
-          {
-            title: "Efectivo",
-            description: `Pagá en nuestros locales ${hasColchonoBase ? "20%" : "10%"} OFF adicional.`,
-            greenText: true
-          },
-          // {
-          //   title: "Punto Localm",
-          //   description: "Método de pago exclusivo para el equipo de Customer de Calm",
-          //   greenText: false
-          // },
-          // {
-          //   title: "Mercado Pago",
-          //   description: "Aboná con el saldo de tu cuenta",
-          //   greenText: false
-          // },
-        ].map((element, index) => {
-          if (index === 4 && !userDataForm.secondStep.isPickup) {
-            return null;
-          }
+        {
+          list_payment_methods.map((element, index) => {
 
-          if (index === 5 && !userLogged) {
-            return null;
-          }
+            if(!available_methods.includes(element.method)) {
+              return null
+            }
 
-          if (hasFeria && index != 1 ) {
-            return null
-          }
+            if (index === INDEX_CASH && !userDataForm.secondStep.isPickup) {
+              return null;
+            }
 
-          const isSelected = index === activeIndex;
+            if (index === INDEX_LOCALM_GATEWAY && !userLogged) {
+              return null;
+            }
 
-          return (
-            <PaymentContainer key={element.description + index.toString()} $isSelected={isSelected}>
-              <CheckboxContainerPayment $isSelected={isSelected}>
-                <PurpleCheckbox
-                  key={
-                    index.toString() + element.description + index.toString()
-                  }
-                  isActive={isSelected}
-                  action={() => {
-                    setActiveIndex(index);
-                  }}
-                  disabled={loadingPay}
-                  text={element.title}
-                  withGreenText={element.greenText}
-                  greenText={hasFeria ? element.outletDescription : element.description}
-                />
-                {index === 0 && (
-                  <DivImgCards>
-                    <Img title="Visa" src={archivos.imagenes.VISA} />
-                    <Img title="Mastercard" src={archivos.imagenes.MASTER} />
-                    <Img title="Amex" src={archivos.imagenes.AMEX} />
-                    <DivModo
-                      onMouseEnter={() => handlerShowCardsModal()}
-                      onMouseLeave={() => handlerShowCardsModal()}
-                      >
-                        <ImgModalCards
-                          alt="boton mas"
-                          src="https://i.imgur.com/lzYtgX8.png"
-                        />
-                      <DivCardsModal $isVisible={showCardsModal}>
-                        <Img title="Cabal" src={archivos.imagenes.CABAL} />
-                        <Img title="Naranja" src={archivos.imagenes.NARANJA} />
-                      </DivCardsModal>
-                    </DivModo>
-                  </DivImgCards>
-                )}
-              </CheckboxContainerPayment>
-              {isSelected && index === 0
-                ? FiservData()
-                // ? PaywayData()
-                : isSelected && index === 1
-                ? TranferenciaData()
-                // Cuando se descomente Wibond, hay que sumar 1 a los índices posteriores
-                /* : isSelected && index === 2
-                ? WibondData() */
-                // Este sería 3
-                : isSelected && index === 2
-                ? btnPayment("Realizar pedido", loadingPay)
-                // Y este 4
-                : isSelected && index === 3 && !userLogged && btnPayment("Pagar en efectivo", loadingPay)
-                // : isSelected && index === 5 && userLogged
-                // ? PuntoLocalmData()
-                // : isSelected && index === 6 && btnPayment("Pagar con Mercado Pago", loadingPay)
-              }
-            </PaymentContainer>
-          );
-        })}
+            if (hasFeria && index != INDEX_BACS ) {
+              return null
+            }
+
+            const isSelected = index === activeIndex;
+
+            return (
+              <PaymentContainer key={element.description + index.toString()} $isSelected={isSelected}>
+                <CheckboxContainerPayment $isSelected={isSelected}>
+                  <PurpleCheckbox
+                    key={
+                      index.toString() + element.description + index.toString()
+                    }
+                    isActive={isSelected}
+                    action={() => {
+                      setActiveIndex(index);
+                    }}
+                    disabled={loadingPay}
+                    text={element.title}
+                    withGreenText={element.greenText}
+                    greenText={hasFeria ? element.outletDescription : element.description}
+                  />
+                  {index === 0 && (
+                    <DivImgCards>
+                      <Img title="Visa" src={archivos.imagenes.VISA} />
+                      <Img title="Mastercard" src={archivos.imagenes.MASTER} />
+                      <Img title="Amex" src={archivos.imagenes.AMEX} />
+                      <DivModo
+                        onMouseEnter={() => handlerShowCardsModal()}
+                        onMouseLeave={() => handlerShowCardsModal()}
+                        >
+                          <ImgModalCards
+                            alt="boton mas"
+                            src="https://i.imgur.com/lzYtgX8.png"
+                          />
+                        <DivCardsModal $isVisible={showCardsModal}>
+                          <Img title="Cabal" src={archivos.imagenes.CABAL} />
+                          <Img title="Naranja" src={archivos.imagenes.NARANJA} />
+                        </DivCardsModal>
+                      </DivModo>
+                    </DivImgCards>
+                  )}
+                </CheckboxContainerPayment>
+                {
+                  isSelected && renderContentPaymentMethodByIndexSelected(index)
+                }
+              </PaymentContainer>
+            );
+          })
+        }
       </PagoDiv>
       <ToastContainer limit={3} />
       {errorfix &&

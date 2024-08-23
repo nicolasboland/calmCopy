@@ -21,6 +21,7 @@ import { IPropsMenuDkestop } from "./types"
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { useSelector } from "react-redux";
 import { getMobileMenu } from "@/state/cart/cartSelector";
+import { useEffect, useState } from "react";
 
 const MenuMobile = ({
     menuData,
@@ -32,6 +33,13 @@ const MenuMobile = ({
     staticLandings
 }: IPropsMenuDkestop) => {
     const isMobileMenuOpen = useSelector(getMobileMenu);
+    const [render, setRender] = useState(false)
+
+    useEffect(() => {
+        setRender(true)
+    }, [])
+
+    if (!render) return null
 
     return (
         <MenuWrapperMobile id="menuWrapper" $isMenuOpen={isMobileMenuOpen}>

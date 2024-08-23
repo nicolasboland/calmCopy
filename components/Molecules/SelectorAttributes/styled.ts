@@ -39,7 +39,7 @@ export const ContainerSize = styled.div`
   }}
 `
 
-export const SelectHeight = styled.div`
+export const SelectHeight = styled.div<{ $isCombo?:boolean }>`
   display: flex;
   gap: 15px;
   align-items: center;
@@ -47,7 +47,7 @@ export const SelectHeight = styled.div`
 
   button {
     display: flex;
-    height: 65px;
+    height: ${props => props. $isCombo ? "80px" : "65px"};
     width: 50%;
     flex-direction: column;
     align-items: center;
@@ -60,7 +60,7 @@ export const SelectHeight = styled.div`
     }
 
     @media ${({theme}) => theme.devices.mobile} {
-      height: 55px;
+      height: ${props => props. $isCombo ? "70px" : "55px"};
     } 
   }
 
@@ -100,5 +100,12 @@ export const WrapperPrices = styled.div`
 export const ContainerPack = styled.div`
     display: flex;
     align-items: center;
-    gap: 10px
+    gap: 10px;
+`
+
+export const PillOfert = styled.div`
+  background-color: ${props => props.theme.colors.yellowCalm};
+  padding: 3px 10px;
+  border-radius: 5px;
+  width: 75%;
 `

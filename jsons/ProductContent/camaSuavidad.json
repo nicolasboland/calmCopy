@@ -6,7 +6,7 @@
     "selectedLink": "bases",
     "dreamDelivery": true,
     "tranferDiscount": "30OFF",
-    "headPills" : "NUEVO LANZAMIENTO",
+    "headPills" : "LANZAMIENTO",
     "skus": "BASCAMSUA080000;BASCAMSUA100000;BASCAMSUA140000;BASCAMSUA160000",
     "benefitsProduct": [
         {
@@ -94,7 +94,7 @@
         },
         {
             "title":"¿Cómo se arma mi Cama Suavidad?",
-            "description":"<p>Primero, tenés que armar la estructura. Tiene el mismo procedimiento que nuestro sommier y podés ver el instructivo <a href='https://www.youtube.com/watch?v=upluGcGL_dU'>acá</a>. <br> Luego, abrís la caja del marco, rompés el vacío y lo colocas directamente. Podés ver cómo hacerlo acá.</p>"
+            "description":"<p>Primero, tenés que armar la estructura. Tiene el mismo procedimiento que nuestro sommier y podés ver el video instructivo <a href='https://www.youtube.com/watch?v=MFlXbw1sjjE' target='_blank'> en nuestro canal</a>. Luego, abrís la caja del marco, rompés el vacío y lo colocas directamente. Podés ver el paso a paso digital <a href='https://drive.google.com/file/d/1UTFjm1td13lSyQ-xXpU3mWVIje5lX6WW/view' target='_blank'> acá</a>.</p>"
         }
     ],
     "renders" : {

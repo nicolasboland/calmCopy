@@ -175,6 +175,7 @@ export const pureCSS = css`
     }
 `;
 
-export const Wrapper = styled.div`
-  ${pureCSS}
+export const Wrapper = styled.div<{ $scriptLoaded?: boolean }>`
+   /*  display: ${props => props.$scriptLoaded ? "block" : "none"}; */
+    ${pureCSS}
 `;

@@ -41,6 +41,7 @@ export const DivCalm = styled.div`
 
 export const DivContent = styled.div`
   margin: 1rem 0 1rem 2rem;
+  position: relative;
 
   @media ${theme.devices.middleResolutionDesktop} {
     display: flex;
@@ -86,9 +87,13 @@ export const DivTitle = styled.div`
   margin-top: 3rem;
   margin-bottom: 3px;
   justify-content: flex-start;
-
 `;
 
+export const PillContainer = styled.div`
+  div {
+    top: 4%;
+  }
+`
 
 export const DivPrice = styled.div`
 display: flex;

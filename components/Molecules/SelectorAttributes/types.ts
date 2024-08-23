@@ -17,6 +17,7 @@ export interface IProps {
     isCategory?: boolean
     price?: number
     onQuantityChange?: (quantity: number) => void;
+    idProd?: string
 
 }
 

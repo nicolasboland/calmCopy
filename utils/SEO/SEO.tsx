@@ -65,7 +65,7 @@ const SEO = ({title, description, imageSrc, url, graphImageObject, graphWebPage,
 
   return (
    <>
-      {productReviewsSKUs && 
+      {/* {productReviewsSKUs && 
          <>
             <Script
                src="https://widget.reviews.io/rich-snippet/dist.js"
@@ -87,7 +87,7 @@ const SEO = ({title, description, imageSrc, url, graphImageObject, graphWebPage,
                document.head.appendChild(script);
             }}
          />
-      }
+      } */}
       
       <Script
          src="https://www.googletagmanager.com/gtag/js?id=G-XZXPXMQZC7"
@@ -140,15 +140,15 @@ const SEO = ({title, description, imageSrc, url, graphImageObject, graphWebPage,
             )
          }
 
-         {productLandingGallery &&
+        {/*  {productLandingGallery &&
          productLandingGallery.map((img, index) => 
-            index !== 0 && (
+            index === 0 && (
                <link rel="preload" as="image" href={img} key={index}/>
             )
          )
-         }
+         } */}
 
-         {miniBanner && miniBanner.cucarda && <link rel="preload" as="image" href={miniBanner.cucarda}/>}
+       {/*   {miniBanner && miniBanner.cucarda && <link rel="preload" as="image" href={miniBanner.cucarda}/>} */}
 
          {process.env.NODE_ENV != "development" && (productLandingGallery || ( bigBanner && bigBanner.length > 0)) &&
             <>

@@ -40,15 +40,16 @@ export const ContainerCards = styled.div<{ $isThreeItems?: boolean}>`
 `
 
 export const Select = styled.select`
-    width: 90%;
-    padding: 10px;
-    margin: 10px auto;
-    border-radius: 4px;
-    border: 0.75px solid ${props => props.theme.colors.lead};
-    font-family: ${props => props.theme.fonts.bold};
-    color: ${props => props.theme.colors.lead};
-    line-height: 100%;
-    font-size: 1rem;
+  width: 90%;
+  padding: 10px;
+  margin: 10px auto;
+  border-radius: 4px;
+  border: 0.75px solid ${props => props.theme.colors.lead};
+  font-family: ${props => props.theme.fonts.bold};
+  color: ${props => props.theme.colors.lead};
+  line-height: 100%;
+  font-size: 1rem;
+  display: flex;
 `
 
 export const ContainerCardsMobile = styled.div`

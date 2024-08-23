@@ -14,14 +14,15 @@ const ATCFixesPriceVisor = ({
     size,
     price,
     regularPrice,
-    isCategory
+    isCategory,
+    quantity
     }: IProps) => {
+        
     const regex = /\((.*?)\)/g;
     const partes = size && size.split(regex);
-
     return (
         <Container>
-            <InfoContainer $isCategory={isCategory}>
+            <InfoContainer $isCategory={isCategory || typeof quantity !== 'undefined'}>
                 <Margin margin="0 4px 0 0">
                     <Text
                     font="bold"
@@ -34,38 +35,50 @@ const ATCFixesPriceVisor = ({
                     {title} {" "}
                     </Text>
                 </Margin>
-                
-                {
-                    !isCategory && partes && (
-                    <>
-                        <Margin margin="0 4px 0 0">
-                            <Text
-                            font="medium"
-                            fontSize="0.9rem" 
-                            responsiveMobile={{
-                                fontSize:"0.8rem" 
-                            }}
-                            >
-                                -  {partes[0]}
-                            </Text>
-                        </Margin>
 
-                        {
-                            partes[1] !== undefined && (
+                {
+                    quantity ? 
+                    <Margin margin="0 4px 0 0">
+                        <Text
+                        font="medium"
+                        fontSize="0.9rem" 
+                        responsiveMobile={{
+                            fontSize:"0.8rem" 
+                        }}
+                        >
+                            {quantity} {quantity > 1 ? 'Unidades' : 'Unidad'}
+                        </Text>
+                    </Margin>
+                    : !isCategory && partes && (
+                        <>
+                            <Margin margin="0 4px 0 0">
                                 <Text
-                                font="regular"
-                                color="millionGray"
+                                font="medium"
                                 fontSize="0.9rem" 
                                 responsiveMobile={{
                                     fontSize:"0.8rem" 
                                 }}
                                 >
-                                {" "}
-                                ({partes[1]})
+                                    -  {partes[0]}
                                 </Text>
-                            )
-                        }
-                    </> )
+                            </Margin>
+    
+                            {
+                                partes[1] !== undefined && (
+                                    <Text
+                                    font="regular"
+                                    color="millionGray"
+                                    fontSize="0.9rem" 
+                                    responsiveMobile={{
+                                        fontSize:"0.8rem" 
+                                    }}
+                                    >
+                                    {" "}
+                                    ({partes[1]})
+                                    </Text>
+                                )
+                            }
+                        </> )
                 }
                 {
                     isCategory && partes && 

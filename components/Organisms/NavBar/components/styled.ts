@@ -228,6 +228,11 @@ export const Pill = styled.span<{$isYellowPill?: boolean}>`
   padding: 5px 8px;
   border-radius: 15px;
   font-size: .7em;
+  margin: 0 0 0 10px;
+
+  @media ${props => props.theme.devices.biggerMobile} {
+    margin: 0;
+  }
 `;
 
 export const SelectedProductWrapper = styled.div`

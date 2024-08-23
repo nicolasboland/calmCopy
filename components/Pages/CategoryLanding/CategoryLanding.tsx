@@ -1,5 +1,3 @@
-"use client"
-
 import CategoryProductsCards from "@/components/Organisms/CategoryProductsCard/CategoryProductsCard"
 import {  useSelector } from 'react-redux';
 import { getCurrentProductsRelated } from '@/state/products/productsSelector';

@@ -32,7 +32,7 @@ const ChatRecommendation: React.FC<ChatRecommendationProps> = ({ isForMobile }) 
           cualquier consulta.
         </Text>
         <Margin margin="15px 0 0 0" />
-        <Button onClick={openChat}>
+        <Button onClick={() => openChat(true)}>
           <Text
             color="wildViolet"
             font="extraBold"

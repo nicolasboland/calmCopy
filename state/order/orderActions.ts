@@ -350,11 +350,7 @@ export const onDefineCheckoutPath = () => {
     if(sessionCheckoutPath) {
       dispatch(onDefineCheckoutSucceeded(sessionCheckoutPath))
      } else {
-        const math_random = Math.random();
-        console.log("MATH RANDOM: ", math_random);
-        console.log("RATIO HEADLESS: ", process.env.NEXT_PUBLIC_CHECKOUT_HEADLESS_RATIO);
-        const pathCheckout = math_random < Number(process.env.NEXT_PUBLIC_CHECKOUT_HEADLESS_RATIO) ? "pago" : "checkout-pago";
-        // const pathCheckout = Math.random() < Number(process.env.NEXT_PUBLIC_CHECKOUT_HEADLESS_RATIO) ? "checkout-pago" : "pago";
+        const pathCheckout = Math.random() < Number(process.env.NEXT_PUBLIC_CHECKOUT_HEADLESS_RATIO) ? "checkout-pago" : "pago";
         sessionStorage.setItem("checkoutPath", pathCheckout)
         dispatch(onDefineCheckoutSucceeded(pathCheckout))
         //dispatch(onLogCheckoutRatio(pathCheckout))

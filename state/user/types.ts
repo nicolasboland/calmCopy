@@ -5,4 +5,5 @@ export interface ILoggedUser {
     }
     openCheckoutChat?: boolean,
     error: boolean
+    cp?: string
 }

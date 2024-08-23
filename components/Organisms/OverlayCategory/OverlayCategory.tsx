@@ -12,7 +12,6 @@ import ATCFixesPriceVisor from "@/components/Molecules/ATCFixesPriceVisor/ATCFix
 import variations_sizes from "@/utils/variations_sizes";
 import Images from "@/components/Atoms/Images/Images";
 import Pills from "@/components/Atoms/Pills/Pills";
-import { useWidth } from "@/hooks/useWidth";
 import { useDispatch, useSelector } from "react-redux";
 import { onGetCloseOverlay, onGetOpenOverlay } from "@/state/products/productsActions";
 import { productURLRedirectionById } from "@/utils/productURLById";
@@ -21,10 +20,8 @@ import { IStore } from "@/state/types";
 import { getMobileMenu, getOpenSideCart } from "@/state/cart/cartSelector";
 
 const OverlayCategory = ({items}: IProps) => {
-    const width = useWidth();
     const dispatch = useDispatch()
     const isNavbarVisible = useSelector(getIsNavbarVisible)
-    const breakpoint = 768
     const [ show, setShow] = useState<boolean>(false)
     const [hasBeenVisible, setHasBeenVisible] = useState(false);
     const isMobileMenuOpen = useSelector(getMobileMenu);

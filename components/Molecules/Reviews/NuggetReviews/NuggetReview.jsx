@@ -2,10 +2,12 @@ import { useEffect, useState } from 'react';
 import { Wrapper } from "./styled"
 import { useScript } from '@/hooks/useScript';
 import ModalReviews from '@/components/Organisms/Modals/ModalReviews/ModalReviews';
+import SkeletonLoader from "@/components/Atoms/SkeletonLoader/SkeletonLoader"
 
 const NuggetReview = ({skus}) => {
 
   const [modalHandle, setModalHandle] = useState(false)
+  const [scriptLoaded, setScriptLoaded] = useState(false)
 
   const showModal = () => {
     setModalHandle(!modalHandle)
@@ -48,10 +50,16 @@ const NuggetReview = ({skus}) => {
       }, []);
     
       return (
-        <Wrapper>
-             <div onClick={showModal} className="ruk_rating_snippet" data-sku={skus}></div>
-             {modalHandle && <ModalReviews CloseHandle={showModal} skus={skus}/>}
-        </Wrapper>
+        <>
+          {/* { 
+            !scriptLoaded &&
+            <SkeletonLoader  width="400px" height="30px"/>
+          } */}
+          <Wrapper /*  $scriptLoaded={scriptLoaded} */>
+              <div onClick={showModal} className="ruk_rating_snippet" data-sku={skus}></div>
+              {modalHandle && <ModalReviews CloseHandle={showModal} skus={skus}/>}
+            </Wrapper>
+        </>
         
       );
     }

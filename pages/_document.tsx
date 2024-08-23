@@ -27,11 +27,11 @@ export default class MyDocument extends Document {
     return (
       <Html lang="es">
         <Head>
-          <link rel="preload" href="/fonts/Gilroy-Bold.ttf" as="font" type="font/ttf" crossOrigin="anonymous"></link>
-          <link rel="preload" href="/fonts/Gilroy-ExtraBold.ttf" as="font" type="font/ttf" crossOrigin="anonymous"></link>
-          <link rel="preload" href="/fonts/Gilroy-Light.ttf" as="font" type="font/ttf" crossOrigin="anonymous"></link>
-          <link rel="preload" href="/fonts/Gilroy-Medium.ttf" as="font" type="font/ttf" crossOrigin="anonymous"></link>
-          <link rel="preload" href="/fonts/Gilroy-Regular.ttf" as="font" type="font/ttf" crossOrigin="anonymous"></link>
+         {/*  <link rel="preload" href="/fonts/Gilroy-Bold.woff2" as="font" type="font/woff2" crossOrigin="anonymous"></link>
+          <link rel="preload" href="/fonts/Gilroy-ExtraBold.woff2" as="font" type="font/woff2" crossOrigin="anonymous"></link>
+          <link rel="preload" href="/fonts/Gilroy-Light.woff2" as="font" type="font/woff2" crossOrigin="anonymous"></link>
+          <link rel="preload" href="/fonts/Gilroy-Medium.woff2" as="font" type="font/woff2" crossOrigin="anonymous"></link>
+          <link rel="preload" href="/fonts/Gilroy-Regular.woff2" as="font" type="font/woff2" crossOrigin="anonymous"></link> */}
 
           <link rel="icon" type="image/x-icon" href="/favicon.ico" />
           <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />

@@ -82,12 +82,11 @@ export const theme = {
     orangePop: "#FFBC3A"
   },
   fonts: {
-    regular: "Gilroy-Regular",
-    medium: "Gilroy-Medium",
-    bold: "Gilroy-Bold",
-    extraBold: "Gilroy-ExtraBold",
-    light: "Gilroy-Light",
-    cartoon: "CC-Wild-Words-Roman"
+    regular: 'var(--font-vietnam-pro); font-weight: 400;',
+    medium: 'var(--font-vietnam-pro); font-weight: 500;',
+    bold: 'var(--font-vietnam-pro); font-weight: 700;',
+    extraBold: 'var(--font-vietnam-pro); font-weight: 800;',
+    light: 'var(--font-vietnam-pro); font-weight: 300;',
   },
   devices: {
     smallMobile: "(max-width: 360px)",
@@ -115,3 +114,11 @@ const Theme = ({ children }: { children: ReactNode }) => (
 )
 
 export default Theme
+
+/* fonts: {
+  regular: "Gilroy-Regular",
+  medium: "Gilroy-Medium",
+  bold: "Gilroy-Bold",
+  extraBold: "Gilroy-ExtraBold",
+  light: "Gilroy-Light"
+}, */

@@ -20,11 +20,17 @@ const NotChatBotChat = () => {
   const [isProduct, setIsProduct] = useState<boolean>(false)
 
   useEffect(() => {
-    setRender(true)
-    if (!chatLoaded) {
+    setTimeout(() => {
+      setRender(true)
+    }, 4000)
+  },[]);
+
+  useEffect(() => {
+    if (!chatLoaded && render) {
     const scriptElement = document.createElement('script');
     scriptElement.src = 'https://app.notchatbot.com/iframeBody.js?apikey=78457365-24c0-4fc5-8d83-3324d6aa8ef5&showPopupMobile=false';
     scriptElement.async = true;
+    scriptElement.defer = true;
     document.body.appendChild(scriptElement);
 
     scriptElement.onload = () => {
@@ -40,7 +46,7 @@ const NotChatBotChat = () => {
       document.body.removeChild(scriptElement);
     };
   }
-  },[]);
+  },[render]);
 
     function sendMessageToIframe(space: string) {
       var eventData = {

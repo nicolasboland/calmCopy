@@ -13,4 +13,5 @@ export interface IProps {
     stateLoading?: boolean
     selectedChild?: IChildrenProd
     idProd?: string
+    quantity: number
 }

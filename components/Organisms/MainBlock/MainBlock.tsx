@@ -44,7 +44,6 @@ import PaymentCards from "@/components/Molecules/PaymentCards/PaymentCards";
 import { ATCFixed } from "@/components/Molecules/ATCFixed/ATCFixed";
 import variations_sizes from "@/utils/variations_sizes"
 import { BannerAndCucarda } from "@/components/Molecules/BannerAndCucarda/BannerAndCucarda"
-import { useWidth } from "@/hooks/useWidth";
 import EDEProduct from "@/components/Molecules/EDEProduct/EDEProduct"
 import { ModalPostal } from "../Modals/ModalPostal/ModalPostal"
 import { productURLRedirectionByEnv } from "@/utils/productURLRedirectionByEnv"
@@ -112,9 +111,15 @@ const MainBlock = ({
   useEffect(() => {
     if(selectedChild) {
       if(quantity === 2) {
-        setAdjustedRegularPrice(selectedChild.price * 2);
-        setPrice((selectedChild.price*2)*0.90)
-      } else {
+        if(idProd == '2249180' || idProd == "2249006"){
+            setAdjustedRegularPrice(selectedChild.price * 2);
+            setPrice((selectedChild.price*2)*0.90)
+          } else {
+            setAdjustedRegularPrice(selectedChild.regular_price * 2);
+            setPrice((selectedChild.price*2))
+          }
+        
+      } else if((quantity === 1)) {
         setPrice(selectedChild.price)
         setAdjustedRegularPrice(selectedChild.regular_price);
       }
@@ -294,10 +299,13 @@ const MainBlock = ({
               />
             </ImagePromo>
           </LeftColumn>
-      {(loadingRedirect || !galleryLoaded) ? (
-          <MainBlockLoaders />
-        ) : (
-          <RightColumn>
+
+          {
+            (loadingRedirect) ?(
+              <MainBlockLoaders />
+             ) : (
+          
+          <RightColumn >
             {
               headPills &&
               <DivTitlePills>
@@ -333,9 +341,7 @@ const MainBlock = ({
 
             {selectedChild && discount && installments && (
                 <PricesVisor
-                  /* publishedPrice={selectedChild.price ?? 0} */
                   publishedPrice={price ?? 0}
-                  /* regularPrice={selectedChild.regular_price ?? 0} */
                   regularPrice={adjustedRegularPrice ?? 0}
                   nrFees={category != "feria" ? installments : 1}
                   isFeria={category == "feria"}
@@ -383,10 +389,11 @@ const MainBlock = ({
             )}
 
             {
-              dreamDelivery && 
+              dreamDelivery && priceEDE &&
               <>
                 <EDEProduct 
                   onClick={() => setCheckboxEnsueno((prevState) => !prevState)}
+                  priceEDE={priceEDE}
                 />
 
                 <ModalPostal
@@ -456,6 +463,7 @@ const MainBlock = ({
                 stateLoading={stateLoading}
                 selectedChild={selectedChild}
                 idProd={idProd}
+                quantity={quantity}
                 />
               )
             }

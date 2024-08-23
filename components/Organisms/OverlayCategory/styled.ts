@@ -24,7 +24,7 @@ const hideAnimation = keyframes`
 export const Overlay = styled.div<{ $showOverlay: boolean; $hasBeenVisible: boolean, $isNavbarVisible?: boolean }>`
     position: fixed;
     opacity: 0;
-    transform: translateY(100%);
+    transform: translateY(-100%);
     z-index: 10;
     right: 0px;
     top: 117px;

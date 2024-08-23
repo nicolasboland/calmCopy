@@ -1,4 +1,4 @@
-import { HeightContainer, SelectHeight, WrapperPrices, ContainerPack } from "./styled"
+import { HeightContainer, SelectHeight, WrapperPrices, ContainerPack, PillOfert} from "./styled"
 import { IProps, SearchResult } from "./types"
 import { SetStateAction, useEffect, useState } from "react"
 import { formatNumber } from "@/utils/formatPrices"
@@ -18,7 +18,8 @@ const SelectorCombo = ({
   setIsSizeChange,
   hasRenders,
   price,
-  onQuantityChange
+  onQuantityChange,
+  idProd
 }: IProps) => {
   const [quantity, setQuantity] = useState(1); 
 
@@ -41,19 +42,31 @@ const SelectorCombo = ({
         <Text fontSize=".9em" font="medium">
           Seleccioná por cantidad
         </Text>
-        <Images
+        {(idProd == '2249180' || idProd == "2249006") ? (
+          <Images
+                  src="https://imagedelivery.net/7yveHullsFjmXtPLdJPFsg/650e9457-ee80-4d3f-6ce0-ef3a116db700/thumbnail"
+                  alt="alert"
+                  width='20px'
+                  responsiveMobile={{
+                    width: "15px"
+                  }}
+                  title="Elegí si queres una sola mesa o dos, aprovechando el descuento ;)"
+                  />
+          ) : (
+          <Images
                 src="https://imagedelivery.net/7yveHullsFjmXtPLdJPFsg/650e9457-ee80-4d3f-6ce0-ef3a116db700/thumbnail"
                 alt="alert"
                 width='20px'
                 responsiveMobile={{
                   width: "15px"
                 }}
-                title="Elegí si queres una sola mesa o dos, aprovechando el descuento ;)"
+                title="Elegí si queres 1 o 2 unidades."
                 />
+          ) }
       </ContainerPack>
       <Margin margin="5px 0" marginMobile="4px" />
 
-      <SelectHeight>
+      <SelectHeight $isCombo={true}>
         <Button
           disabled={false}
           className={quantity === 1 ? 'selected' : ''}
@@ -71,17 +84,19 @@ const SelectorCombo = ({
           >
             1 Unidad
           </Text>
-          <Text
-            color="millionGray"
-            font="medium"
-            align="left"
-            responsiveMobile={{
-              width: "auto",
-              fontSize: "0.85rem"
-            }}
-          >
-            $ {formatNumber(price ?? 0)}
-          </Text>
+          {(idProd == '2249180' || idProd == "2249006") && (
+            <Text
+              color="millionGray"
+              font="medium"
+              align="left"
+              responsiveMobile={{
+                width: "auto",
+                fontSize: "0.85rem"
+              }}
+            >
+              $ {formatNumber(price ?? 0)}
+            </Text>
+          )}
         </Button>
         <Button
           disabled={false}
@@ -100,6 +115,8 @@ const SelectorCombo = ({
           >
             2 Unidades
           </Text>
+          {(idProd == '2249180' || idProd == "2249006") && (
+            <>
           <WrapperPrices>
             <Text
               color="millionGray"
@@ -124,6 +141,19 @@ const SelectorCombo = ({
               ${formatNumber(price ? price * 2 : 0)}
             </Text>
           </WrapperPrices>
+          
+          <PillOfert>
+            <Text
+            font="regular"
+            color="white"
+            fontSize=".8rem"
+            >
+              10% OFF 
+            </Text>
+              
+          </PillOfert>
+          </>
+          )}
         </Button>
       </SelectHeight>
     </HeightContainer>

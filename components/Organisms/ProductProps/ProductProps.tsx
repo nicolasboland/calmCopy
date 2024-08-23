@@ -9,7 +9,6 @@ import SizeInfoWindow from "../SizeInfoWindow/SizeInfoWindow"
 import Text from "@/components/Atoms/Typography/Text"
 import url_variations from "@/utils/url_variations"
 import { childrenVariationWithoutStock, searchAttribute, atrrToRender } from "@/utils/productsFunctios"
-import SkeletonLoader from "@/components/Atoms/SkeletonLoader/SkeletonLoader"
 import SelectorCombo from "@/components/Molecules/SelectorAttributes/SelectorCombo"
 
 const ProductProps = ({
@@ -94,6 +93,7 @@ const ProductProps = ({
           setSelectedChild(p2)
         }
       }, [tamanoState, altoState, colorState, stockAndPrices, children])
+
 
       //search by url
       useEffect(() => {
@@ -219,8 +219,9 @@ const ProductProps = ({
             </DivSizeInfo>
         </DivSizeText>
         )}
-
-        {arrValuesAttr.tamano.length > 1 && (
+        
+        {
+          arrValuesAttr.tamano.length > 1 && (
             <SelectorSize
             arrChildren={selectedGroup?.sort(
                 (c1, c2) => c1.price - c2.price
@@ -233,7 +234,8 @@ const ProductProps = ({
             landing={category}
             isCategory={isCategory}
             />
-        )}
+        )
+        }
 
         {arrValuesAttr.alto.length !== 0 && (
             <SelectorHeight
@@ -250,7 +252,8 @@ const ProductProps = ({
             />
         )}
 
-        {(idProd == '2249180' || idProd == "2249006") &&  (
+        {(idProd == '2249180' || idProd == "2249006" || idProd == "1831947" || idProd == "1855350" || idProd == "724708" || idProd == "537") &&  (
+
             <SelectorCombo
             hasRenders={hasRenders}
             setSelectedProp={setAltoState}
@@ -259,6 +262,7 @@ const ProductProps = ({
             sizeName={propsNames.tamano}
             price={selectedChild ? selectedChild.price : 0}
             onQuantityChange={onQuantityChange}
+            idProd={idProd}
           />
         )} 
 

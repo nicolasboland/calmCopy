@@ -258,7 +258,7 @@ return (
                 </div>
                 ) : (
                   <div>
-                  {`Pago con tarjeta ${orderCreatedInfo?.payment_details.info_card}`}
+                  {/* {`Pago con tarjeta ${orderCreatedInfo?.payment_details.info_card}`} */}
                 </div>
                 )
               }

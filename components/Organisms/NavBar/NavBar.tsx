@@ -1,5 +1,3 @@
-"use client"
-
 import dynamic from 'next/dynamic';
 import { useEffect, useState } from "react";
 import NavBarMenu from "./components/NavBarMenu";
@@ -28,7 +26,7 @@ const Quizz = dynamic(() => import('@/components/Molecules/Quizz/Quizz'), {
     ssr: false,
   });
 
-const NavBar = ({headbannerData}: INavbar) => {
+const NavBar = (/* {headbannerData}: INavbar */) => {
     const dispatch = useDispatch()
     const router = useRouter();
     const [isOpenModal, openModal, closeModal] = useModal(false)
@@ -46,9 +44,9 @@ const NavBar = ({headbannerData}: INavbar) => {
     const [selectedLink, setSelectedLink] = useState("")
 
     useEffect(() => {
-      /*   dispatch(onGetHeadBannersData()); */
-      if (headbannerData)  dispatch(onGetHeadBannersDataSucceeded(headbannerData))
-      }, [headbannerData]);
+        dispatch(onGetHeadBannersData());
+     /*  if (headbannerData)  dispatch(onGetHeadBannersDataSucceeded(headbannerData)) */
+      }, [/* headbannerData */]);
 
     const openCart = () => {
         dispatch(onOpenSideCart())

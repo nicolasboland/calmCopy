@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Container } from "./styled"
 import { IPropsSize } from "./types"
 import Text from "@/components/Atoms/Typography/Text"
+import SkeletonLoader from "../SkeletonLoader/SkeletonLoader";
 
 const SizeCard = ({
   text,
@@ -15,11 +16,13 @@ const SizeCard = ({
 }: IPropsSize) => {
 
     const regex = /\((.*?)\)/g;
-    const [size, setSize] = useState<string[]>()
+    const [size, setSize] = useState<string | string[]>()
     
     useEffect(() => {
       if (/\(.*?\)/.test(text)) {
         setSize(text.split(regex));
+      } else if (text) {
+        setSize(text);
       }
     }, [text]);
 
@@ -32,19 +35,22 @@ const SizeCard = ({
     $isSelected={selected ? selected.id === childId : false}
     $landing={landing}
     >
-      <Text
-        font={isCategory ? "bold" : "medium"}
-        align="center"
-        responsiveMobile={{
-          width:"auto",
-          fontSize:"0.85rem"
-        }}
-      >
-          {size ? size[0] : text}
-      </Text>
-
       {
-        size && (
+        size ? (
+        <>
+        <Text
+          font={isCategory ? "bold" : "medium"}
+          align="center"
+          responsiveMobile={{
+            width:"auto",
+            fontSize:"0.85rem"
+          }}
+        >
+            {Array.isArray(size) ? size[0] : size}
+        </Text>
+
+        {
+          Array.isArray(size) &&
           <Text
             font="medium"
             align="center"
@@ -56,8 +62,12 @@ const SizeCard = ({
           >
               ({size[1]})
           </Text>
-        )
+        }
+          </> ) : (
+            <SkeletonLoader  width="100%" height="58px"/>
+          )
       }
+     
     </Container>
   )
 }

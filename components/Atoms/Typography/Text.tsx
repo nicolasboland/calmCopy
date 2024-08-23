@@ -39,7 +39,7 @@ const Paragraph = ({
       await router.push(link);
       setTimeout(() => {
         dispatch(onRedirectLoadingFinished())
-      }, 1000)
+      }, 1200)
     };
 
     return (

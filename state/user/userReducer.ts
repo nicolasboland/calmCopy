@@ -3,7 +3,8 @@ import { ILoggedUser } from "./types";
 import {
     ON_GET_USER_IS_LOGGED_SUCCEEDED,
     ON_GET_USER_IS_LOGGED_FAILED,
-    ON_GET_OPEN_CHECKOUT_CHAT_SUCCEEDED
+    ON_GET_OPEN_CHECKOUT_CHAT_SUCCEEDED,
+    ON_ENTER_CP
 } from "./userConstants";
 
 const initialState: ILoggedUser = {
@@ -22,6 +23,11 @@ export default (state = initialState, action: AnyAction) => {
             return {
                 ...state,
                 error: true
+            };
+        case ON_ENTER_CP:
+            return {
+                ...state,
+                cp: action.cp
             };
         case ON_GET_OPEN_CHECKOUT_CHAT_SUCCEEDED:
             return {

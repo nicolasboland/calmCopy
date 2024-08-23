@@ -5,6 +5,7 @@ import Text from "@/components/Atoms/Typography/Text"
 import Margin from "@/components/Atoms/Spacing/Margin/Margin"
 import { useState, useEffect } from 'react';
 import Pills from "@/components/Atoms/Pills/Pills"
+import SkeletonLoader from "../SkeletonLoader/SkeletonLoader"
 
 const PricesVisor = ({ 
   publishedPrice,
@@ -32,7 +33,7 @@ const PricesVisor = ({
   return (
     <>
     {
-      price !== 0 &&
+      price !== 0 ?
       <Container>
         <ContainerPrices>
           <WrapperPrices>
@@ -120,6 +121,7 @@ const PricesVisor = ({
             <Pills categoryPill={pillIdSpecialOffer} isFeatureProduct />
           )}
       </Container>
+      :  <SkeletonLoader  width="100%" height="80px"/>
     }
     </>
 

@@ -9,6 +9,7 @@ const ProductTitleMainBlock = ({
   description,
   isCombo
 }: IProps) => {
+
   return (
     <ComponentWrapper>
       <TitleWrapper>

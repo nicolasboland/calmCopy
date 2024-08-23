@@ -13,7 +13,7 @@ export const TypographyStyled = styled.div<TypographyStyledProps>`
   ${({ $lineHeight }) => $lineHeight && `line-height: ${$lineHeight}`};
   ${props => props.$textStroke && `-webkit-text-stroke: ${props.$textStroke};`}
   ${({ $letterSpacing }) => $letterSpacing && `letter-spacing: ${$letterSpacing}`};
-  font-weight: ${({ $fontWeight }) => $fontWeight ? $fontWeight : 500};
+/*   font-weight: ${({ $fontWeight }) => $fontWeight ? $fontWeight : 500}; */
 
   @media ${props=>props.theme.devices.mobile}{
     width: ${({ $responsiveMobile }) => $responsiveMobile?.width ? `${$responsiveMobile.width}` : "auto"};

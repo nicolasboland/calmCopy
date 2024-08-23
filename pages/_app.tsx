@@ -17,10 +17,19 @@ import { CursorRedirectStyles } from '@/components/Atoms/Typography/redirectionS
 import axios from 'axios';
 import dynamic from 'next/dynamic';
 const NotChatBotChat = dynamic(() => import('@/components/Molecules/Chat/NotChatBotChat/NotChatBotChat'), { ssr: false });
+import { Be_Vietnam_Pro } from 'next/font/google';
+import { SpeedInsights } from "@vercel/speed-insights/next"
+
+export const vietnamPro = Be_Vietnam_Pro({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '700', '800'],
+  variable: '--font-vietnam-pro',
+  display: 'swap',
+});
 
 export default ({ Component, pageProps }: AppProps) => {
   const router = useRouter();
-
+/* 
   const [headbannerData, setHeadbannerData] = useState<any>(null);
 
   useEffect(() => {
@@ -36,7 +45,7 @@ export default ({ Component, pageProps }: AppProps) => {
     };
     fetchHeadBanners();
   }, []);
-
+ */
   useEffect(() => {
     if(process.env.NEXT_PUBLIC_MANTAINANCE_MODE == "true" && !router.asPath.includes("mantenimiento")) {
       router.push("/mantenimiento")
@@ -111,16 +120,19 @@ export default ({ Component, pageProps }: AppProps) => {
 
       <ApolloProvider client={client}>
         <Provider store={store}>
-          <Theme>
-            {router && !router.asPath.includes("mantenimiento") && 
-                <NotChatBotChat /> 
-            }
-            <CursorRedirectStyles/>
-            <NavBar headbannerData={headbannerData}/>
-            <PopupPromotion/>
-            <Component {...pageProps} />
-            <Footer />
-          </Theme>
+          <div className={vietnamPro.variable}>
+            <Theme>
+              <SpeedInsights/>
+              {router && !router.asPath.includes("mantenimiento") && 
+                  <NotChatBotChat /> 
+              }
+              <CursorRedirectStyles/>
+              <NavBar /* headbannerData={headbannerData} *//>
+              <PopupPromotion/>
+              <Component {...pageProps} />
+              <Footer />
+            </Theme>
+          </div>
         </Provider>
       </ApolloProvider>
     </HelmetProvider>

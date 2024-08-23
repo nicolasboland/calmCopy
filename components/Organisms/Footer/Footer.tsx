@@ -1,5 +1,3 @@
-"use client"
-
 import { useEffect, useState } from "react";
 import { StyledContainer, NewsLetterContainer, InfoColumn } from "./styled";
 import { useRouter } from "next/router";

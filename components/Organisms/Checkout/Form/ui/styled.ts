@@ -354,7 +354,6 @@ export const OptionsContainer = styled.div<{$two_column?: boolean}>`
   max-height: 250px;
   display: grid;
   grid-template-columns: ${(props) => (props.$two_column ? "1fr 1fr" : "1fr")};
-
   @media ${({ theme }) => theme.devices.mobile} {
     grid-template-columns: ${(props) => (props.$two_column ? "1fr 1fr" : "1fr")};
   }
@@ -371,11 +370,12 @@ export const Option = styled.p`
   font-family: ${({ theme }) => theme.fonts.regular}, "Arial";
   padding: 10px;
   cursor: pointer;
+  box-sizing: border-box;
   /* transition: background-color 0.3s ease; */
   transition: border 0.1s ease;
   &:hover {
-    /* background-color: ${({ theme }) => theme.colors.yellowCalm}; */
-    border: 4px solid ${({ theme }) => theme.colors.yellowCalm}
+    background-color: ${({ theme }) => theme.colors.yellowCalm};
+    /* border: 4px solid ${({ theme }) => theme.colors.yellowCalm} */
   }
 
   @media ${({ theme }) => theme.devices.mobile} {

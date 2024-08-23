@@ -27,7 +27,8 @@ export const ATCFixed = ({
     showATCButton,
     stateLoading,
     selectedChild,
-    idProd
+    idProd,
+    quantity
 }: IProps) => {
     const dispatch = useDispatch()
     const [ show, setShow] = useState<boolean>(false)
@@ -102,6 +103,7 @@ export const ATCFixed = ({
         size={size}
         regularPrice={regularPrice}
         price={price}
+        quantity={(idProd == '2249180' || idProd == "2249006" || idProd == "1831947" || idProd == "1855350" || idProd == "724708" || idProd == "537") ? quantity : undefined}
         />
 
         <WrapperButton>

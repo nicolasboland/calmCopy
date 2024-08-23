@@ -25,7 +25,7 @@ export const ButtonStyles = styled.button<ButtonStyledProps>`
   text-decoration: none;
   border: 2px solid ${({$borderColor, theme}) =>
     $borderColor ? theme.colors[$borderColor] : 'transparent'};
-  color: ${({ $textColor, theme }) => $textColor && theme.colors[$textColor]};
+  color: ${({ $textColor, theme }) => $textColor ? theme.colors[$textColor] : theme.colors.blackOut};
   transition: 0.3s;
 
   &:disabled {

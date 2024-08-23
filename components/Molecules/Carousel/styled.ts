@@ -181,9 +181,9 @@ export const CucardaContainer = styled.div`
   }
 `
 
-export const GaliciaPill = styled.div`
+export const GaliciaPill = styled.div<{ $isEmpty?: boolean }>`
   position: absolute;
-  top: 15%;
+  top: ${props => props.$isEmpty ? "2%" : "20%"};
   left: 1%;
   background-color: ${props => props.theme.colors.blazeOrange};
   padding: 7px 18px;

@@ -44,8 +44,8 @@ import dynamic from "next/dynamic";
 import SEO from "@/utils/SEO/SEO";
 import { IBannerAndCucarda } from "@/state/hygraph/types";
 import { getBannerAndCucarda } from "@/state/hygraph/hygraphSelector";
-import TitleAndVideo from "@/components/Molecules/TitleAndVideo/TitleAndVideo";
-
+/* import TitleAndVideo from "@/components/Molecules/TitleAndVideo/TitleAndVideo"; */
+const TitleAndVideo = dynamic(() => import("@/components/Molecules/TitleAndVideo/TitleAndVideo"), { ssr: false });
 
 const ProductLanding = ({
   productId,
